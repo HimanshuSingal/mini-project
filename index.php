@@ -5,7 +5,7 @@ include_once 'temp.php';
 <?php
 if(isset($_POST['search']))
 {
-$loginid=$_POST['loginid'];
+$search=$_POST['search'];
 $pass=$_POST['pass'];
 $result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
 $fet = mysql_fetch_array($result);
@@ -30,11 +30,12 @@ echo "failed";
   
   
   <div class="form-group">
-       <input type="text" class="form-control" id="search" name="search" placeholder="Search">
+       <input type="text" class="form-control" id="search" name="search" placeholder="Enter Item To Search">
+<button type="submit" class="btn btn-default" onclick="return check()">Search</button>
   </div>
   
   
-<button type="submit" class="btn btn-default" onclick="return check()">Go</button>
+
 </form>
 
 
