@@ -1,0 +1,4 @@
+<?php
+include_once "temp.php"; 
+?>
+<h>Acces Forbidden</h>

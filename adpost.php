@@ -29,14 +29,32 @@ $price=$_POST['price'];
 $desc=$_POST['desc'];
 $address=$_POST['address'];
 $cat=$_POST['cat'];
-$result=mysql_query("INSERT INTO Ads_info(Title,Price,Description,Address,Category,Display) values('$title','$price','$desc','$address','$cat','Y')",$cn) or die(mysql_error());
+$new=$_POST['new'];
+$result=mysql_query("select Ads_ID from Ads_info order by Ads_ID desc limit 1",$cn) or die(mysql_error());
+$fet = mysql_fetch_array($result);
+$adid=$fet['Ads_ID']+1;
+$target="adphotos/";
+if ((($_FILES["photo"]["type"] == "image/jpeg")
+            || ($_FILES["photo"]["type"] == "image/pjpg"))
+            && ($_FILES["photo"]["size"] < 100000000000))
+            {
+                move_uploaded_file($_FILES["photo"]["tmp_name"], $target.$adid.".jpg");
+		$result=mysql_query("INSERT INTO Ads_info(Ads_ID,Title,Price,Description,Address,Category,Display,New) values('$adid','$title','$price','$desc','$address','$cat','Y','$new')",$cn) or die(mysql_error());
+		$result=mysql_query("INSERT INTO Post_ads(Login_ID,Ads_ID) values('$loginid','$adid')",$cn) or die(mysql_error());
+
+            }
+            else
+            {
+                echo "choose right format for photo";
+            }
+
 
 }
 
 
 ?>
 	
-  <form role="form" name="form" method="POST" action="adpost.php">
+  <form role="form" name="form" method="POST" enctype="multipart/form-data" action="adpost.php">
   
 <div class="form-group">
     <label for="cat">Category</label>
@@ -62,7 +80,14 @@ $result=mysql_query("INSERT INTO Ads_info(Title,Price,Description,Address,Catego
     <label for="price">Price</label>
     <input type="number" class="form-control" id="price" name="price" placeholder="Enter Price">
   </div>
+
+  <div class="form-group">
+       <label for="new">New</label><input type="radio" class="form-control" id="new" name="new" value="Y">
+       <label for="new">Old</label><input type="radio" class="form-control" id="new" name="new" value="N">
+ 
+ </div>
   
+
   <div class="form-group">
     <label for="address">Location</label>
     <input type="text" class="form-control" id="address" name="address" placeholder="Enter location of product">
@@ -74,7 +99,12 @@ $result=mysql_query("INSERT INTO Ads_info(Title,Price,Description,Address,Catego
    </textarea>
   </div>
   
-<button type="submit" class="btn btn-default" onclick="return check()">Sign In</button>
+ <div class="form-group">
+    <label for="photo">Upload a picture(jpeg or jpg)</label>
+    <input type="file" name="photo" id="photo"/>
+  </div>
+
+<button type="submit" class="btn btn-default" onclick="return check()">Submit</button>
 </form>
 
 
