@@ -15,7 +15,7 @@ include_once 'cn.php';
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title></title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -64,7 +64,8 @@ include_once 'cn.php';
              $fet = mysql_fetch_array($result);
              if($fet['cnt']!=1)
              {
-                echo "<a href='login.php' style='color:blue'> sign in</a>";
+                echo "<li><a href='login.php'> sign in</a><li>";
+                echo "<li><a href='register.php'> sign up</a><li>";
             } 
             else
             {
@@ -75,30 +76,10 @@ include_once 'cn.php';
          else
          {
                echo "<a href='login.php'> sign in</a>";
+               echo "<li><a href='register.php'> sign up</a><li>";
           }
           ?></li>
-          <li><?php
-          if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
-          {
-             $loginid=$_SESSION['uname'];
-             $pass=$_SESSION['pass'];
-             $result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
-             $fet = mysql_fetch_array($result);
-             if($fet['cnt']!=1)
-             {
-                echo "<a href='register.php'> sign up</a>";
-            } 
-            else
-            {
-                echo "<span style='color:red'></span>"; 
-            }
-           
-        }
-         else
-         {
-               echo "<a href='register.php'> sign up</a>";
-          }
-          ?></li>
+         
           
 
             <!-- <li><a href="login.php">Sign in</a></li>
