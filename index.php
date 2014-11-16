@@ -8,42 +8,41 @@ include_once 'temp.php';
 
 <head>
 <style>
-body{
-	background: white;
-	background-image: url(mini.jpg);
-	background-repeat: no-repeat;
-	background-size: 1350px 250px;
-}
  
-.row {
-    background-color: lightgray;
-   
- }
  .active{
  	font-size: 35px;
  }
+ .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #F5F5F5;
+    border-right: 1px solid #EEE;
+}
 
 </style>
 </head>
 
 <body>
-<p style="text-align:center;font-size: 40px; color:red"><bold>New Arrivals!!</bold></p>
-<br><br><br><br>
+<br><br>
+<div  style="padding-left:40% ;background-color:#ecf0f1;padding-top:13px;padding-bottom:5px;">
+	<form class="navbar-form navbar-left" role="search" method="POST" action="ads.php">
+		<div class="form-group">
+    		<input type="text" class="form-control" id="search" name="search" placeholder="Enter Item To Search">
+    	</div>
 
-<div style="padding-left:35%;">
-<form class="navbar-form navbar-left" role="search" method="POST" action="ads.php" >
-
-    <div class="form-group">
-    <input type="text" class="form-control" id="search" name="search" placeholder="Enter Item To Search">
-    </div>
-
-    <button type="submit" class="btn btn-default" onclick="return check()">Search</button>
-</form>
+    		<button type="submit" class="btn btn-default" onclick="return check()">Search</button>
+	</form>
 <br>
-<h5 ><a href="adpost.php"><strong>Post an Advertisement</strong></a></h5>
+<br>
+	<h5 style="padding-left:20px"><a href="adpost.php"><strong>Post an Advertisement</strong></a></h5>
 </div>
-
-<br>
 
 <div class="container-fluid">
       <div class="row">

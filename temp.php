@@ -1,60 +1,118 @@
 <?php
+ob_start();
+session_start();
 include_once 'cn.php';
+?>
+<?php
 ?>
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
 
-<head>
+    <title>Dashboard Template for Bootstrap</title>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/bootstrap-theme.css" rel="stylesheet">
-        <script src="js/bootstrap.js">
-        </script>
-        <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
-        
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <style>
-
-    body {
-        padding-top: 10px;
-        padding-left: ;
-        
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-        background-color:black;
+    .navbar-inverse navbar-fixed-top{
+        background-color:blue;
     }
     </style>
+  </head>
 
-</head>
 
 <body>
 
-        <div class="container" style="background-color: ;padding-left:850px; "> 
-      <div class="custom-menu">
-        <nav class="navbar" role="navigation">
-          <ul class="nav nav-pills">
-            <li class=""><a href="login.php">Sign in</a></li>
-             <li class=""><a href="register.php">Sign up</a></li>
-              <li class=""><a href="index.html">About us</a></li>
-            
-              
-            </li>
-        </nav>
-      </div>  
-    </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style="padding-left:75%; font-size:30px">Mini-Craigslist</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+          <li><?php
+          if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
+          {
+             $loginid=$_SESSION['uname'];
+             $pass=$_SESSION['pass'];
+             $result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
+             $fet = mysql_fetch_array($result);
+             if($fet['cnt']!=1)
+             {
+                echo "<a href='login.php' style='color:blue'> sign in</a>";
+            } 
+            else
+            {
+                echo "<span style='color:red'>Hey! $loginid</span>"; 
+            }
+           
+        }
+         else
+         {
+               echo "<a href='login.php'> sign in</a>";
+          }
+          ?></li>
+          <li><?php
+          if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
+          {
+             $loginid=$_SESSION['uname'];
+             $pass=$_SESSION['pass'];
+             $result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
+             $fet = mysql_fetch_array($result);
+             if($fet['cnt']!=1)
+             {
+                echo "<a href='register.php'> sign up</a>";
+            } 
+            else
+            {
+                echo "<span style='color:red'></span>"; 
+            }
+           
+        }
+         else
+         {
+               echo "<a href='register.php'> sign up</a>";
+          }
+          ?></li>
+          
 
-<h1 style="text-align:center"></h1>
- <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
+            <!-- <li><a href="login.php">Sign in</a></li>
+            <li><a href="register.php">Sign up</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    <!-- Bootstrap Core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
 
 </html>
