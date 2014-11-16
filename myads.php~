@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-include_once 'temp.php';
+include_once 'temp1.php';
 if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
 {
 $loginid=$_SESSION['uname'];
@@ -46,7 +46,7 @@ echo "Brand New </br>";
 if($fet['New']=="N")
 echo "Used</br>";
 echo "Location -".$fet['Address']."</br>";
-echo "<input type='checkbox' name='delete[]' value='$id'>Delete</br>";
+echo "<input type='checkbox' name='delete[]' value='$id'>Delete</br></br>";
 }
 ?>
 <input type='submit' value="Delete" onclick="return check()"/>

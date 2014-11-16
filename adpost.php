@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-include_once 'temp.php';
+include_once 'temp1.php';
 ?>
 <title>Post Ad</title>
 <?php
@@ -34,25 +34,18 @@ $result=mysql_query("select Ads_ID from Ads_info order by Ads_ID desc limit 1",$
 $fet = mysql_fetch_array($result);
 $adid=$fet['Ads_ID']+1;
 $target="adphotos/";
-
 if ((($_FILES["photo"]["type"] == "image/jpeg")
             || ($_FILES["photo"]["type"] == "image/pjpg"))
-            && ($_FILES["photo"]["size"] < 2000000) && getimagesize($_FILES['photo']['tmp_name']))
+            && ($_FILES["photo"]["size"] < 100000000000))
             {
                 move_uploaded_file($_FILES["photo"]["tmp_name"], $target.$adid.".jpg");
 		$result=mysql_query("INSERT INTO Ads_info(Ads_ID,Title,Price,Description,Address,Category,Display,New) values('$adid','$title','$price','$desc','$address','$cat','Y','$new')",$cn) or die(mysql_error());
 		$result=mysql_query("INSERT INTO Post_ads(Login_ID,Ads_ID) values('$loginid','$adid')",$cn) or die(mysql_error());
- 
-            }
-           else if(!file_exists($_FILES['photo']['tmp_name']) || !is_uploaded_file($_FILES['photo']['tmp_name']))
-           {
-		$result=mysql_query("INSERT INTO Ads_info(Ads_ID,Title,Price,Description,Address,Category,Display,New) values('$adid','$title','$price','$desc','$address','$cat','Y','$new')",$cn) or die(mysql_error());
-		$result=mysql_query("INSERT INTO Post_ads(Login_ID,Ads_ID) values('$loginid','$adid')",$cn) or die(mysql_error());
 
-           }
-           else
+            }
+            else
             {
-                echo "<script>alert('choose right format/size for photo')</script>";
+                echo "choose right format for photo";
             }
 
 
@@ -102,7 +95,8 @@ if ((($_FILES["photo"]["type"] == "image/jpeg")
   
  <div class="form-group">
     <label for="desc">Details</label>
-    <textarea class="form-control" id="desc" name="desc"></textarea>
+    <textarea class="form-control" id="desc" name="desc">
+   </textarea>
   </div>
   
  <div class="form-group">
