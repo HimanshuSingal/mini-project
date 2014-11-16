@@ -13,7 +13,7 @@ $result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' 
 $fet = mysql_fetch_array($result);
 if($fet['cnt']==1)
 {
-echo "success";
+header("Location:index.php");
 $_SESSION['uname']=$loginid;
 $_SESSION['pass']=$pass;
 }
@@ -22,7 +22,6 @@ echo "failed";
 }
 
 ?>
-<<<<<<< HEAD
 <head>
 <style>
         body
@@ -57,47 +56,10 @@ echo "failed";
 </div>
     </div>
 
-   <div>
- <!--  <form class="form-horizontal" role="form" name="form" method="POST" action="login.php">
-=======
-  
-  <form role="form" name="form" method="POST" action="login.php">
-  
->>>>>>> 55c9b593c905f2dff6d213f4e40ef384cdbd327d
-  
-  <div class="form-group">
-    <label for="loginid">User Name</label>
-    <input type="text" class="form-control" id="loginid" name="loginid" placeholder="Enter your user name">
-  </div>
-  <div class="form-group">
-    <label for="pass1">Password</label>
-    <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter your Password">
-  </div>
-<<<<<<< HEAD
-  <button type="submit" class="btn btn-default" onclick="return check()">Sign In</button>
-</form>
- -->
-
-
- <script text-align:center>
- function check()
- {
-
- return true;
- }
- </script>
-</body>
-=======
-  
-  
-<button type="submit" class="btn btn-default" onclick="return check()">Sign In</button>
-</form>
-
-
-<script>
+ 
+ <script>
 function check()
 {
 return true;
 }
 </script>
->>>>>>> 55c9b593c905f2dff6d213f4e40ef384cdbd327d

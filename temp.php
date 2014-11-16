@@ -6,7 +6,6 @@ include_once 'cn.php';
 
 <head>
 
-<<<<<<< HEAD
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -31,21 +30,17 @@ include_once 'cn.php';
     }
     </style>
 
-=======
->>>>>>> 55c9b593c905f2dff6d213f4e40ef384cdbd327d
-
 </head>
 
 <body>
 
-<<<<<<< HEAD
-        <div class="container" style="background-color:; "> 
+        <div class="container" style="background-color: ;padding-left:850px; "> 
       <div class="custom-menu">
         <nav class="navbar" role="navigation">
           <ul class="nav nav-pills">
-            <li class="active col-md-2 text-center"><a href="login.php">Sign in</a></li>
-             <li class="active col-md-2 text-center"><a href="register.php">Sign up</a></li>
-              <li class="active col-md-2 text-center"><a href="index.html">About us</a></li>
+            <li class=""><a href="login.php">Sign in</a></li>
+             <li class=""><a href="register.php">Sign up</a></li>
+              <li class=""><a href="index.html">About us</a></li>
             
               
             </li>
@@ -59,9 +54,6 @@ include_once 'cn.php';
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-=======
->>>>>>> 55c9b593c905f2dff6d213f4e40ef384cdbd327d
 
 </body>
 

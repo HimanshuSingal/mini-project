@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-include_once 'temp.php';
+include_once 'temp1.php';
 ?>
 <title>Post Ad</title>
 <?php
