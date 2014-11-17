@@ -119,8 +119,7 @@ if ((($_FILES["photo"]["type"] == "image/jpeg")
             
                               <div class="form-group">
                                   <label for="desc">Details</label>
-                                  <textarea class="form-control" id="desc" name="desc">
-                                 </textarea>
+                                  <textarea class="form-control" id="desc" name="desc"></textarea>
                               </div>
   
                               <div class="form-group">
