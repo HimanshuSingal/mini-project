@@ -6,7 +6,22 @@ include_once 'temp2.php';
 <body>
 <br><br>
 <div class="container">
+<?php
+if(isset($_POST['search']))
+{
+         $search=$_POST['search'];
+        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For $search</h3></br></br></div></div>";
+}
+else if(isset($_GET['cat']))
+{
+         $cat=$_GET['cat'];
+	$query=mysql_query("SELECT * FROM Category1 where ID='$cat'",$cn) or die(mysql_error());
+	$fet = mysql_fetch_array($query);
+         $cat=$fet['Category'];
+        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For Category $cat</h3></br></br></div></div>";
+}
 
+?>
         <div class="row">
             <div class="col-lg-12 text-center">
 
