@@ -1,18 +1,16 @@
-<head>
-	<style>
-		body{
-			padding-top: 50px;
-			padding-left:10px;
-		}
-
-
-	</style>
-</head>
-
-<body>
-
 <?php
 include_once 'temp.php';
+include_once 'temp2.php';
+?>
+<title>Mini Craigslist</title>
+<body>
+<br><br>
+<div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+
+<?php
 if(isset($_POST['search']))
 {
 $search=$_POST['search'];
@@ -74,6 +72,8 @@ echo "</br>";
 }
 }
 
-
 ?>
+  </div>
+       
+    </div>
 </body>

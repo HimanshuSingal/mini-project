@@ -1,7 +1,6 @@
 <?php
-ob_start();
-session_start();
 include_once 'temp.php';
+include_once 'temp2.php';
 if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
 {
 $loginid=$_SESSION['uname'];
@@ -25,6 +24,14 @@ $result=mysql_query("update Ads_info set Display='N' where Ads_ID='$id'",$cn) or
 
 
 ?>
+
+<title>Mini Craigslist</title>
+<body>
+<br><br>
+<div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
 <form name="form" method="POST" action="myads.php">
 <?php
 $query=mysql_query("SELECT * FROM Ads_info as a,Post_ads as p,Category1 as c where  p.Login_ID='$loginid' and p.Ads_ID=a.Ads_ID and c.ID=a.Category and a.Display='Y' and a.Blocked='N' order by a.Time desc",$cn) or die(mysql_error());
@@ -50,6 +57,10 @@ echo "<input type='checkbox' name='delete[]' value='$id'>Delete</br></br>";
 }
 ?>
 <input type='submit' value="Delete" onclick="return check()"/>
+</form>
+</div>
+</div>
+</div>
 <script>
 function check()
 {
