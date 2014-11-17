@@ -18,9 +18,11 @@ else
 header("Location:forbidden.php");
 }
 ?>
+<br>
+<br>
 <form name="form" action="blockads.php" method="POST">
 <input type="submit" value="Change"/>
-</br>
+<br>
 <?php 
 if(isset($_POST['search']))
 {
@@ -32,7 +34,7 @@ $id=$fet['Ads_ID'];
 $src="adphotos/".$id.".jpg";
 if(file_exists($src))
 {
-echo "<img src='$src' width='300' height='200'></br>";
+echo "<img src='$src' width='100' height='100'></br>";
 }
         echo "Title -".$fet['Title']."</br>";
 echo "Category -".$fet['Category']."</br>";
@@ -96,8 +98,7 @@ echo "<input type='checkbox' name='Block[]' value='$val'>Change</br></br>";
 echo "</br>";
 }
 }
-
-
 ?>
+
 
 </form>
