@@ -40,13 +40,14 @@ $result=mysql_query("insert into Admin_User(Admin_ID,USER_ID,Act) values('$login
 
             <div class="col-md-1"></div>
            <div class="col-md-1"></div>
-            <div class="col-md-1"><input type="submit" value="Change"/></br>
-</div>
+            <div class="col-md-1"><input type="submit" value="Change"/></br></div>
           
 </div>
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
+            <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+
 <?php
               
      $query=mysql_query("SELECT * FROM User  order by Login_ID",$cn) or die(mysql_error());
