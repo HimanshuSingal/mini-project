@@ -82,6 +82,7 @@ if ((($_FILES["photo"]["type"] == "image/jpeg")
   	<div class="container" >
         <div class="row" style="margin-top:10px;">
            <div class="col-md-4 col-md-offset-4">
+           <p id="demo" style="color:red"></p>
                 <form role="form" name="form" method="POST" enctype="multipart/form-data" action="adpost.php">
     
                     <div class="form-group">
@@ -141,6 +142,32 @@ if ((($_FILES["photo"]["type"] == "image/jpeg")
 <script>
 function check()
 {
+if(document.form.title.value=="")
+{
+document.getElementById("demo").innerHTML = "Please enter title!!";
+return false;
+}
+if(document.form.price.value=="")
+{
+document.getElementById("demo").innerHTML = "Please enter price!!";
+return false;
+}
+if(document.form.title.value=="")
+{
+document.getElementById("demo").innerHTML = "Please enter title!!";
+return false;
+}
+if(document.form.location.value=="")
+{
+document.getElementById("demo").innerHTML = "Please enter title!!";
+return false;
+}
+if(document.form.details.value=="")
+{
+document.getElementById("demo").innerHTML = "Please enter title!!";
+return false;
+}
+
 return true;
 }
 </script>

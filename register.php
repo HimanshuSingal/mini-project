@@ -45,7 +45,7 @@ $result=mysql_query("INSERT INTO User(Name,Login_ID,Email_ID,Phone_no,Address,Pa
             <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Password">
              <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Retype Password"><br>
             
-            <input class="btn btn-lg btn-success btn-block" type="submit" value="Resister" onclick="return check()">
+            <input class="btn btn-lg btn-success btn-block" type="submit" value="Register" onclick="return check()">
           </fieldset>
         </form>
     </div>
