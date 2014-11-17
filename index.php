@@ -23,7 +23,7 @@ include_once 'temp.php';
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #F5F5F5;
-    border-right: 1px solid #EEE;
+  border-right: 1px solid #EEE;
 }
 
 </style>
@@ -31,7 +31,7 @@ include_once 'temp.php';
 
 <body>
 <br><br>
-<div  style="padding-left:40% ;background-color:#ecf0f1;padding-top:13px;padding-bottom:5px;">
+<div  style="padding-left:40% ;background-color:#F5F5F5;padding-top:13px;padding-bottom:5px;">
 	<form class="navbar-form navbar-left" role="search" method="POST" action="ads.php">
 		<div class="form-group">
     		<input type="text" class="form-control" id="search" name="search" placeholder="Enter Item To Search">
