@@ -23,8 +23,10 @@ else if(isset($_GET['cat']))
 }
 
 ?>
-        <div class="row">
-            <div class="col-lg-12 text-center">
+       <div class="row">
+	
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
 
 					<?php
 					if(isset($_POST['search']))

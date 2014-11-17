@@ -43,7 +43,7 @@ include_once 'cn.php';
                             {
                                $loginid=$_SESSION['uname'];
                                $pass=$_SESSION['pass'];
-                               $result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
+                               $result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass' and Blocked='N'",$cn) or die(mysql_error());
                                $fet = mysql_fetch_array($result);
                                if($fet['cnt']!=1)
                                {
