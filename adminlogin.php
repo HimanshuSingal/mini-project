@@ -52,24 +52,6 @@ echo "failed";
 </div>
     </div>
 
-
-  <!-- <form role="form" name="form" method="POST" action="adminlogin.php">
-  
-  
-  <div class="form-group">
-    <label for="loginid">Admin Name</label>
-    <input type="text" class="form-control" id="loginid" name="loginid" placeholder="Enter your admin login id">
-  </div>
-  <div class="form-group">
-    <label for="pass1">Password</label>
-    <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter your Password">
-  </div>
-  
-  
-<button type="submit" class="btn btn-default" onclick="return check()">Sign In</button>
-</form> -->
-
-
 <script>
 function check()
 {
