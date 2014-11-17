@@ -55,14 +55,14 @@ include_once 'cn.php';
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-          <li><a href='index.php'>Home</a>
+          <li><a href='blockads.php'>Home</a>
           <li><?php
-          if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
-          {
-             $loginid=$_SESSION['uname'];
-             $pass=$_SESSION['pass'];
-             $result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
-             $fet = mysql_fetch_array($result);
+               if(isset($_SESSION['admin']) && isset($_SESSION['adminpass']))
+                {
+                    $loginid=$_SESSION['admin'];
+                    $pass=$_SESSION['adminpass'];
+                    $result=mysql_query("select count(*) as cnt from Admin where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
+                    $fet = mysql_fetch_array($result);
              if($fet['cnt']!=1)
              {
                 echo "<li><a href='adminlogin.php'> sign in</a><li>";
@@ -71,7 +71,7 @@ include_once 'cn.php';
             } 
             else
             {
-                echo "<li style='color:red ' >Hey! $loginid<li>"; 
+                echo "<li style='color:red'>Hey! $loginid<li>"; 
                 echo "<li><a href='myads.php'></a></li>";
             }
            

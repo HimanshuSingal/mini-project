@@ -13,9 +13,7 @@ $result=mysql_query("select count(*) as cnt from Admin where Login_ID='$loginid'
 $fet = mysql_fetch_array($result);
 if($fet['cnt']==1)
 {
-echo "success";
-$_SESSION['admin']=$loginid;
-$_SESSION['adminpass']=$pass;
+header("Location:blockads.php");
 }
 else
 echo "failed";
