@@ -70,9 +70,9 @@ include_once 'cn.php';
 
             } 
             else
-            {
+            {    echo "<li><a href='myads.php'>myads</a></li>";
                 echo "<li style='color:red ' >Hey! $loginid<li>"; 
-                echo "<li><a href='myads.php'>myads</a></li>";
+               
             }
            
         }

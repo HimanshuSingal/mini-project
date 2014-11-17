@@ -26,12 +26,8 @@ echo "failed";
 <style>
         body
         {
-          background-image: url("slide-2.jpg");
-          background-size: 1300px 500px;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-position: 0px 55px;
-          background-color: black;
+           background-position: 0px 55px;
+          background-color: #89AAEE;
          }
          
         </style>
@@ -39,7 +35,7 @@ echo "failed";
 	<body>
 
  <div class="container">
-  <div class="row" style="margin-top:50px; padding-right:300px">
+  <div class="row" style="margin-top:100px;">
     <div class="col-md-4 col-md-offset-4">
       <form method="POST" action="adminlogin.php" accept-charset="UTF-8" role="form" id="loginform" class="form-signin"><input name="_token" type="hidden" value="snIDVlxZSk7KEJjGcPcP9EmwfyY1lMyIuaU5s8ct">
         <fieldset>
@@ -48,10 +44,8 @@ echo "failed";
             <hr class="colorgraph">
                 <input type="text" class="form-control" id="loginid" name="loginid" placeholder="Enter your admin login id">
 
-            <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter your Password">
-            <div class="checkbox">
-              <label><input name="remember" type="checkbox" value="Remember Me"> Remember Me</label>
-            </div>
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter your Password"><br>
+            
             <button type="submit" class="btn btn-lg btn-success btn-block" onclick="return check()">Sign In</button>
           </fieldset>
         </form>

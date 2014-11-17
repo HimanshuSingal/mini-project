@@ -26,17 +26,15 @@ echo "failed";
 <style>
         body
         {
-          background-image: url("help.jpg");
-          background-repeat: no-repeat;
-          background-attachment: fixed;
           background-position: 0px 55px;
+          background-color: #89AAEE;
          }
          
         </style>
 </head>
 <body>
        <div class="container">
-  <div class="row" style="margin-top:50px; padding-right:300px">
+  <div class="row" style="margin-top:100px;">
     <div class="col-md-4 col-md-offset-4">
       <form method="POST" action="login.php" accept-charset="UTF-8" role="form" id="loginform" class="form-signin"><input name="_token" type="hidden" value="snIDVlxZSk7KEJjGcPcP9EmwfyY1lMyIuaU5s8ct">
         <fieldset>
@@ -44,10 +42,8 @@ echo "failed";
 
             <hr class="colorgraph">
             <input type="text" class="form-control" id="loginid" name="loginid" placeholder="Username">
-            <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
-            <div class="checkbox">
-              <label><input name="remember" type="checkbox" value="Remember Me"> Remember Me</label>
-            </div>
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Password"><br>
+            
             <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
           </fieldset>
         </form>
