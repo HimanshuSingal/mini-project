@@ -1,3 +1,23 @@
+<head>
+<style>
+body
+	{
+		padding-top: 100px;
+		padding-left:400px; 
+	}
+.column
+	{
+		
+		border: 5px solid #a1a1a1;
+	    padding: 10px 10px; 
+    	background: #F5F5F5;
+    	width: 500px;
+    	border-radius: 10px;
+	}
+</style>
+</head>
+<body>
+<div class="column" style="text-align:center">
 <?php
 include_once 'temp.php';
 if(isset($_GET['user']))
@@ -12,7 +32,6 @@ echo "Address - ".$fet['Address']."</br>";
 echo "</br>";
 
 }
-
-
 ?>
-
+</div>
+</body>
