@@ -6,10 +6,6 @@ include_once 'temp2.php';
 <title>Mini Craigslist</title>
 
 <body>
-<<<<<<< HEAD
-=======
-
->>>>>>> 69d2c248273168352daf18e18a453eea466cde0d
 <div class="container">
 <?php
 if(isset($_POST['search']))
@@ -56,7 +52,7 @@ else if(isset($_GET['cat']))
 					$userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
 					$userfet=mysql_fetch_array($userquery);
 					$user=$userfet['Login_ID'];
-					echo "<a href='profile.php?user=".$user."'>Contact Me</a></br>";
+					echo "<a href='profile.php?user=".$user."' target='_blank'>Contact Me</a></br>";
 					echo "</br>";
 					}
 					}

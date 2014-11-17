@@ -1,5 +1,6 @@
 <?php
 include_once 'tempadmin.php';
+include_once 'temp2admin.php';
 if(isset($_SESSION['admin']) && isset($_SESSION['adminpass']))
 {
 $loginid=$_SESSION['admin'];
@@ -17,13 +18,40 @@ header("Location:forbidden.php");
 }
 ?>
 
-<br>
-<br>
 
-	<form name="form" action="blockads.php" method="POST">
-		<input type="submit" value="Change"/>
-	
-<br>
+<body>
+<div class="container">
+<div class="row">
+<?php
+if(isset($_POST['search']))
+{
+         $search=$_POST['search'];
+        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For $search</h3></br></div></div>";
+}
+else if(isset($_GET['cat']))
+{
+         $cat=$_GET['cat'];
+	$query=mysql_query("SELECT * FROM Category1 where ID='$cat'",$cn) or die(mysql_error());
+	$fet = mysql_fetch_array($query);
+         $cat=$fet['Category'];
+        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For Category $cat</h3></br></div></div>";
+}
+
+?>
+            
+</div>
+<div class="row">
+		<form name="form" action="blockads.php" method="POST">
+            <div class="col-md-1"></div>
+           <div class="col-md-1"></div>
+            <div class="col-md-1"><input type="submit" value="Change"/></br>
+</div>
+          
+</div>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+
 <?php 
 if(isset($_POST['search']))
 {
@@ -35,7 +63,7 @@ $id=$fet['Ads_ID'];
 $src="adphotos/".$id.".jpg";
 if(file_exists($src))
 {
-echo "<img src='$src' width='200' height='200'></br>";
+echo "<img src='$src' width='250' height='250'></br>";
 }
         echo "Title -".$fet['Title']."</br>";
 echo "Category -".$fet['Category']."</br>";
@@ -55,7 +83,7 @@ if($fet['Blocked']=="Y")
 {echo "Blocked</br>";$block="N";}
 if($fet['Blocked']=="N")
 {echo "Normal</br>";$block="Y";}
-echo "<a href='profile.php?user=".$user."'>User</a></br>";
+echo "<a href='profile.php?user=".$user."' target='_blank'>User</a></br>";
 $val=$id."--".$block;
 echo "<input type='checkbox' name='Block[]' value='$val'/>Change</br></br>";
 
@@ -73,7 +101,7 @@ $id=$fet['Ads_ID'];
 $src="adphotos/".$id.".jpg";
 if(file_exists($src))
 {
-echo "<img src='$src' width='300' height='200'></br>";
+echo "<img src='$src' width='250' height='250'></br>";
 }
         echo "Title -".$fet['Title']."</br>";
 echo "Category -".$fet['Category']."</br>";
@@ -93,13 +121,15 @@ if($fet['Blocked']=="Y")
 {echo "<span style='color:red'>This Ad is Blocked</span></br>";$block="N";}
 if($fet['Blocked']=="N")
 {echo "This is Ad is not Blocked</br>";$block="Y";}
-echo "<a href='profile.php?user=".$user."'>User</a></br>";
+echo "<a href='profile.php?user=".$user."' target='_blank'>User</a></br>";
 $val=$id."--".$block;
 echo "<input type='checkbox' name='Block[]' value='$val'>Change</br></br>";
 echo "</br>";
 }
 }
 ?>
+</div>
+</div>
 </form>
 
 

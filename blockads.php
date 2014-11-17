@@ -28,9 +28,6 @@ $result=mysql_query("insert into Admin_Ads(Login_ID,Ads_ID,Act) values('$loginid
 }}}
 ?>
 
-<head>
-  <title>Mini Craigslist</title>
-</head>
 
 <body>
 <div class="container">
@@ -39,6 +36,16 @@ $result=mysql_query("insert into Admin_Ads(Login_ID,Ads_ID,Act) values('$loginid
 <div class="row">
             <div class="col-lg-12 text-center"><h3>Showing All Results</h3></br></div>
 </div>
+<div class="row">
+		<form name="form" action="blockads.php" method="POST">
+
+            <div class="col-md-1"></div>
+           <div class="col-md-1"></div>
+            <div class="col-md-1"><input type="submit" value="Change"/></br>
+</div>
+          
+</div>
+
         <div class="row">
             <div class="col-lg-12 text-center">
 <?php
@@ -50,13 +57,13 @@ $id=$fet['Ads_ID'];
 $src="adphotos/".$id.".jpg";
 if(file_exists($src))
 {
-echo "<img src='$src' width='200' height='200'></br>";
+echo "<img src='$src' width='250' height='250'></br>";
 }
         echo "Title -".$fet['Title']."</br>";
 echo "Category -".$fet['Category']."</br>";
 
 echo "Details -".$fet['Description']."</br>";
-echo "Price - ".$fet['Price']."</br>";
+echo "Price -".$fet['Price']."</br>";
 if($fet['New']=="Y")
 echo "Brand New </br>";
 if($fet['New']=="N")
@@ -65,9 +72,17 @@ echo "Location -".$fet['Address']."</br>";
 $userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
 $userfet=mysql_fetch_array($userquery);
 $user=$userfet['Login_ID'];
-echo "<a href='profile.php?user=".$user."'>Contact Me</a></br>";
+
+if($fet['Blocked']=="Y")
+{echo "<span style='color:red'>This ad is Blocked</span></br>";$block="N";}
+if($fet['Blocked']=="N")
+{echo "Normal Ad</br>";$block="Y";}
+echo "<a href='profile.php?user=".$user."' target='_blank'>User</a></br>";
+$val=$id."--".$block;
+echo "<input type='checkbox' name='Block[]' value='$val'/>Change</br></br>";
 
 echo "</br>";
+
 }
 ?>
             </div>

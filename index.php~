@@ -7,12 +7,6 @@ include_once 'temp2.php';
 </head>
 
 <body>
-<<<<<<< HEAD
-=======
-
-<br><br>
-
->>>>>>> 69d2c248273168352daf18e18a453eea466cde0d
 <div class="container">
 
 

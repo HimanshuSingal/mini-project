@@ -39,7 +39,7 @@ echo "Location -".$fet['Address']."</br>";
 $userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
 $userfet=mysql_fetch_array($userquery);
 $user=$userfet['Login_ID'];
-echo "<a href='profile.php?user=".$user."'>Contact Me</a></br>";
+echo "<a href='profile.php?user=".$user."' target='_blank'>Contact Me</a></br>";
 
 echo "</br>";
 }
