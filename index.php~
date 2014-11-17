@@ -39,7 +39,7 @@ echo "Location -".$fet['Address']."</br>";
 $userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
 $userfet=mysql_fetch_array($userquery);
 $user=$userfet['Login_ID'];
-echo "<a href='profile.php?user=".$user."'>Contact Me</a></br>";
+echo "<a href='profile.php?user=".$user."' target='_blank'>Contact Me</a></br>";
 
 echo "</br>";
 }
@@ -54,6 +54,15 @@ echo "</br>";
 <script>
 function check()
 {
+if(document.myform.search.value == "")
+   {
+     document.getElementById("demo").innerHTML = "Please enter the item to be searched!!";
+     return false;
+     /*alert( "Please enter the item to be searched!!" );
+     document.myform.search.focus();
+     return false;*/
+     
+   }
 return true;
 }
 

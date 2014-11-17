@@ -24,7 +24,7 @@
 <body>
 <br><br>
 <div  style="padding-left:40% ;background-color:#F5F5F5;padding-top:13px;padding-bottom:5px;">
-	<form class="navbar-form navbar-left" role="search" method="POST" action="ads.php">
+	<form class="navbar-form navbar-left" name="myform" role="search" method="POST" action="ads.php" >
 		<div class="form-group">
     		<input type="text" class="form-control" id="search" name="search" placeholder="Enter Item To Search">
     	</div>
@@ -34,6 +34,7 @@
 <br>
 <br>
 	<h5 style="padding-left:20px"><a href="adpost.php"><strong>Post an Advertisement</strong></a></h5>
+	<p id="demo" style="color:red"></p>
 </div>
 
 <div class="container-fluid">

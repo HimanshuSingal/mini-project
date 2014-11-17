@@ -3,9 +3,9 @@ ob_start();
 session_start();
 include_once 'temp.php';
 ?>
-<title>New Registration</title>
+<title>Sign In</title>
 <?php
-if(isset($_POST['name']))
+if(isset($_POST['loginid']))
 {
 $loginid=$_POST['loginid'];
 $pass=$_POST['pass'];
@@ -13,7 +13,7 @@ $result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' 
 $fet = mysql_fetch_array($result);
 if($fet['cnt']==1)
 {
-echo "success";
+header("Location:index.php");
 $_SESSION['uname']=$loginid;
 $_SESSION['pass']=$pass;
 }
@@ -22,27 +22,54 @@ echo "failed";
 }
 
 ?>
-	
-  <form role="form" name="form" method="POST" action="login.php">
-  
-  
-  <div class="form-group">
-    <label for="loginid">User Name</label>
-    <input type="text" class="form-control" id="loginid" name="loginid" placeholder="Enter your user name">
-  </div>
-  <div class="form-group">
-    <label for="pass1">Password</label>
-    <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter your Password">
-  </div>
-  
-  
-<button type="submit" class="btn btn-default" onclick="return check()">Login</button>
-</form>
+<head>
+<style>
+        body
+        {
+          background-position: 0px 55px;
+          background-color: #89AAEE;
+         }
+         
+        </style>
+</head>
+<body>
+       <div class="container">
+  <div class="row" style="margin-top:100px;">
+    <div class="col-md-4 col-md-offset-4">
+      <form method="POST" name="myform" action="login.php" accept-charset="UTF-8" role="form" id="loginform" class="form-signin">
+      <input name="_token" type="hidden" value="snIDVlxZSk7KEJjGcPcP9EmwfyY1lMyIuaU5s8ct">
+        <fieldset>
+            <h3 class="sign-up-title" style="color:dimgray;">Welcome back! sign in</h3>
+            <p id="demo"></p>
+            <hr class="colorgraph">
+            <input type="text" class="form-control" id="loginid" name="loginid" placeholder="Username">
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Password"><br>
+            
+            <input class="btn btn-lg btn-success btn-block" type="submit" value="Login" onclick="return check()">
+          </fieldset>
+        </form>
+    </div>
+    </div>
+</div>
+    </div>
+
+ 
+ <script>
 
 
-<script>
 function check()
 {
+if(document.myform.loginid.value == "")
+   {
+     document.getElementById("demo").innerHTML = "Please enter the item to be searched!!";
+     return false;
+     /*alert( "Please enter the loginid to be searched!!" );
+     document.myform.loginid.focus() ;
+     return false;*/
+     
+   }
+  
 return true;
+
 }
 </script>
