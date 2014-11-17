@@ -1,7 +1,5 @@
 <?php
-ob_start();
-session_start();
-include_once 'temp.php';
+include_once 'tempadmin.php';
 ?>
 <title>Add Category</title>
 <?php
@@ -28,14 +26,56 @@ $result=mysql_query("INSERT INTO Category1(Category) values('$cat')",$cn) or die
 
 ?>
 	
-  <form role="form" name="form" method="POST" action="addcategory.php">
   
-  <div class="form-group">
-    <label for="cat">Category</label>
-    <input type="text" class="form-control" id="cat" name='cat' placeholder="Enter Category">
-  </div>
-<button type="submit" class="btn btn-default" onclick="return check()">Add</button>
-</form>
+
+
+<head>
+
+    <style>
+      body{
+          padding-top: 60px;
+        }
+        .container{
+          border: 2px solid #a1a1a1;
+          padding: 10px 10px; 
+          background: #F5F5F5;
+          width: 800px;
+          border-radius: 25px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+  	<div class="container" >
+        <div class="row" style="margin-top:10px;">
+           <div class="col-md-4 col-md-offset-4">
+                <form role="form" name="form" method="POST" enctype="multipart/form-data" action="addcategory.php">
+    
+                    <div class="form-group">
+                                  <label for="cat">Category</label>
+                                  <input type="text" class="form-control" id="cat" name="cat" placeholder="Enter Category To Add">
+                              </div>
+
+                            
+                            
+
+                                  <button type="submit" class="btn btn-default" onclick="return check()">Submit</button>
+                </form>
+
+          </div>
+       </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
 
 <script>
 function check()
