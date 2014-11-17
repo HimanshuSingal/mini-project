@@ -70,9 +70,10 @@ include_once 'cn.php';
 
             } 
             else
-            {    echo "<li><a href='logout.php'>Logout</a></li>";
-                 echo "<li><a href='myads.php'>myads</a></li>";
-                echo "<li style='color:red ' >Hey! $loginid<li>"; 
+            {    echo "<li><a href='myads.php'>Myads</a></li>";
+		echo "<li><a href='logout.php'>Logout</a></li>";
+                       
+		echo "<li style='color:red ' ><span>Hey! $loginid</span><li>"; 
                
             }
            
