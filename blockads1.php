@@ -1,6 +1,4 @@
 <?php
-ob_start();
-session_start();
 include_once 'tempadmin.php';
 if(isset($_SESSION['admin']) && isset($_SESSION['adminpass']))
 {
