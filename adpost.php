@@ -147,26 +147,12 @@ if(document.form.title.value=="")
 document.getElementById("demo").innerHTML = "Please enter title!!";
 return false;
 }
-if(document.form.price.value=="")
+if(document.form.cat.value=="NULL")
 {
-document.getElementById("demo").innerHTML = "Please enter price!!";
+document.getElementById("demo").innerHTML = "Please choose category!!";
 return false;
 }
-if(document.form.title.value=="")
-{
-document.getElementById("demo").innerHTML = "Please enter title!!";
-return false;
-}
-if(document.form.location.value=="")
-{
-document.getElementById("demo").innerHTML = "Please enter title!!";
-return false;
-}
-if(document.form.details.value=="")
-{
-document.getElementById("demo").innerHTML = "Please enter title!!";
-return false;
-}
+
 
 return true;
 }

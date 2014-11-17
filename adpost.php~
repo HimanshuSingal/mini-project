@@ -7,7 +7,7 @@ if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
 {
 $loginid=$_SESSION['uname'];
 $pass=$_SESSION['pass'];
-$result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
+$result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass' and blocked='N'",$cn) or die(mysql_error());
 $fet = mysql_fetch_array($result);
 if($fet['cnt']!=1)
 {
@@ -158,6 +158,11 @@ document.getElementById("demo").innerHTML = "Please enter title!!";
 return false;
 }
 if(document.form.location.value=="")
+{
+document.getElementById("demo").innerHTML = "Please enter title!!";
+return false;
+}
+if(document.form.details.value=="")
 {
 document.getElementById("demo").innerHTML = "Please enter title!!";
 return false;
