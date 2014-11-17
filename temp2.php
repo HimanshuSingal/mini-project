@@ -34,7 +34,7 @@
 <br>
 <br>
 	<h5 style="padding-left:20px"><a href="adpost.php"><strong>Post an Advertisement</strong></a></h5>
-	<p id="demo" style="color:red"></p>
+	<p id="demo" style="color:red;"></p>
 </div>
 
 <div class="container-fluid">
