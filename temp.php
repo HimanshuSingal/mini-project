@@ -15,7 +15,7 @@ include_once 'cn.php';
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title></title>
+    <title>Mini Craigslist</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="dashboard.css" rel="stylesheet">
