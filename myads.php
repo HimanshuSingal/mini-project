@@ -20,7 +20,8 @@ if(!empty($_POST['delete'])){
 foreach($_POST['delete'] as $id){
 $result=mysql_query("update Ads_info set Display='N' where Ads_ID='$id'",$cn) or die(mysql_error());
 }
-}}
+}
+}
 
 
 ?>

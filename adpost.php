@@ -58,84 +58,84 @@ if ((($_FILES["photo"]["type"] == "image/jpeg")
 
 ?>
 <head>
-<style>
-  body{
-    padding-top: 60px;
-  }
-  .container{
-    border: 2px solid #a1a1a1;
-    padding: 10px 10px; 
-    background: #F5F5F5;
-    width: 800px;
-    border-radius: 25px;
 
-  }
-  </style>
+    <style>
+      body{
+          padding-top: 60px;
+        }
+        .container{
+          border: 2px solid #a1a1a1;
+          padding: 10px 10px; 
+          background: #F5F5F5;
+          width: 800px;
+          border-radius: 25px;
 
-  </head>
-  <body>
+        }
+    </style>
+
+</head>
+
+<body>
   	<div class="container" >
-    <div class="row" style="margin-top:10px;">
-      <div class="col-md-4 col-md-offset-4">
-    <form role="form" name="form" method="POST" enctype="multipart/form-data" action="adpost.php">
+        <div class="row" style="margin-top:10px;">
+           <div class="col-md-4 col-md-offset-4">
+                <form role="form" name="form" method="POST" enctype="multipart/form-data" action="adpost.php">
     
-  <div class="form-group">
-      <label for="cat">Category</label>
-    
-    <select  class="form-control" id="cat" name='cat'>
-  <option value="NULL">Choose Category</option>
-   <?php  
-  	 $query=mysql_query("SELECT * FROM Category1 order by Category",$cn) or die(mysql_error());
-               while($fet = mysql_fetch_array($query))
-                 {
-                     echo "<option value = '".$fet['ID']."'>".$fet['Category']."</option>";
-                 }
-   ?>
-  </select>  
-  </div>
+                    <div class="form-group">
+                        <label for="cat">Category</label>
+                          <select  class="form-control" id="cat" name='cat'>
+                              <option value="NULL">Choose Category</option>
+                                  <?php  
+                              	       $query=mysql_query("SELECT * FROM Category1 order by Category",$cn) or die(mysql_error());
+                                           while($fet = mysql_fetch_array($query))
+                                             {
+                                                 echo "<option value = '".$fet['ID']."'>".$fet['Category']."</option>";
+                                             }
+                               ?>
+                          </select>  
+                    </div>
  
-  
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" name="title" placeholder="Enter a title for searching product">
-  </div>
-  <div class="form-group">
-    <label for="price">Price</label>
-    <input type="number" class="form-control" id="price" name="price" placeholder="Enter Price">
-  </div>
+                              <div class="form-group">
+                                  <label for="title">Title</label>
+                                  <input type="text" class="form-control" id="title" name="title" placeholder="Enter a title for searching product">
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="price">Price</label>
+                                  <input type="number" class="form-control" id="price" name="price" placeholder="Enter Price">
+                              </div>
  
- <td>
-  <div class="form-group">
-       <label for="new">New</label><input type="radio"  id="new" name="new" value="Y">&nbsp&nbsp&nbsp
-       <label for="new">Old</label><input type="radio"  id="new" name="new" value="N">
- 
- </div>
- </td>
+                              <td>
+                                <div class="form-group">
+                                     <label for="new">New</label><input type="radio"  id="new" name="new" value="Y">&nbsp&nbsp&nbsp
+                                     <label for="new">Old</label><input type="radio"  id="new" name="new" value="N">
+                               
+                                </div>
+                              </td>
+                              <div class="form-group">
+                                  <label for="address">Location</label>
+                                  <input type="text" class="form-control" id="address" name="address" placeholder="Enter location of product">
+                              </div>
+            
+                              <div class="form-group">
+                                  <label for="desc">Details</label>
+                                  <textarea class="form-control" id="desc" name="desc">
+                                 </textarea>
+                              </div>
   
+                              <div class="form-group">
+                                  <label for="photo">Upload a picture(jpeg or jpg)</label>
+                                  <input type="file" name="photo" id="photo"/>
+                              </div>
 
-  <div class="form-group">
-    <label for="address">Location</label>
-    <input type="text" class="form-control" id="address" name="address" placeholder="Enter location of product">
-  </div>
-  
- <div class="form-group">
-    <label for="desc">Details</label>
-    <textarea class="form-control" id="desc" name="desc">
-   </textarea>
-  </div>
-  
- <div class="form-group">
-    <label for="photo">Upload a picture(jpeg or jpg)</label>
-    <input type="file" name="photo" id="photo"/>
-  </div>
+                                  <button type="submit" class="btn btn-default" onclick="return check()">Submit</button>
+                </form>
 
-<button type="submit" class="btn btn-default" onclick="return check()">Submit</button>
-</form>
-
-</div>
-</div>
-</div>
+          </div>
+       </div>
+    </div>
 </body>
+
 <script>
 function check()
 {

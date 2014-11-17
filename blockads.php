@@ -27,11 +27,6 @@ $result=mysql_query("update Ads_info set Blocked='$block' where Ads_ID='$id'",$c
 $result=mysql_query("insert into Admin_Ads(Login_ID,Ads_ID,Act) values('$loginid','$id','$block') ",$cn) or die(mysql_error());
 }}}
 ?>
-<head>
-<title>Block Ads</title>
-</head>
-
-<body>
 
 
 

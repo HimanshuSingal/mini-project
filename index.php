@@ -2,9 +2,14 @@
 include_once 'temp.php';
 include_once 'temp2.php';
 ?>
-<title>Mini Craigslist</title>
+<head>
+  <title>Mini Craigslist</title>
+</head>
+
 <body>
 <div class="container">
+
+
 <div class="row">
             <div class="col-lg-12 text-center"><h3>Showing All Results</h3></br></div>
 </div>
@@ -40,9 +45,12 @@ echo "</br>";
 }
 ?>
             </div>
+
        
     </div>
+</div>
 </body>
+
 <script>
 function check()
 {
