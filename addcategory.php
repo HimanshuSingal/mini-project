@@ -55,6 +55,7 @@ $result=mysql_query("INSERT INTO Category1(Category) values('$cat')",$cn) or die
     
                     <div class="form-group">
                                   <label for="cat">Category</label>
+                                  <p id="demo" style="color:red"></p>
                                   <input type="text" class="form-control" id="cat" name="cat" placeholder="Enter Category To Add">
                               </div>
 
@@ -80,6 +81,11 @@ $result=mysql_query("INSERT INTO Category1(Category) values('$cat')",$cn) or die
 <script>
 function check()
 {
-return true;
+	if(document.form.cat.value=="")
+		{
+			document.getElementById("demo").innerHTML = "Please enter category!!";
+			return false;
+		}
+	return true;
 }
 </script>
