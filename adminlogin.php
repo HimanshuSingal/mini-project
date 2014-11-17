@@ -31,6 +31,7 @@ echo "failed";
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-position: 0px 55px;
+          background-color: black;
          }
          
         </style>

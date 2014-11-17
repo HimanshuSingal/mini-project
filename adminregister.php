@@ -41,6 +41,7 @@ $result=mysql_query("INSERT INTO Admin(Name,Login_ID,Email_ID,Phone,Address,Pass
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-position: 0px 55px;
+          background-color: black;
          }
          
         </style>

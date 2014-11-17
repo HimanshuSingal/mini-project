@@ -67,10 +67,12 @@ include_once 'cn.php';
              {
                 echo "<li><a href='login.php'> sign in</a><li>";
                 echo "<li><a href='register.php'> sign up</a><li>";
+
             } 
             else
             {
-                echo "<li><span style='color:red ' >Hey! $loginid</span><li>"; 
+                echo "<li style='color:red ' >Hey! $loginid<li>"; 
+                echo "<li><a href='myads.php'>myads</a></li>";
             }
            
         }
