@@ -34,20 +34,28 @@ $adid=$fet['Ads_ID']+1;
 $target="adphotos/";
 if ((($_FILES["photo"]["type"] == "image/jpeg")
             || ($_FILES["photo"]["type"] == "image/pjpg"))
-            && ($_FILES["photo"]["size"] < 100000000000))
+            && ($_FILES["photo"]["size"] < 2000000) && getimagesize($_FILES['photo']['tmp_name']))
             {
                 move_uploaded_file($_FILES["photo"]["tmp_name"], $target.$adid.".jpg");
 		$result=mysql_query("INSERT INTO Ads_info(Ads_ID,Title,Price,Description,Address,Category,Display,New) values('$adid','$title','$price','$desc','$address','$cat','Y','$new')",$cn) or die(mysql_error());
 		$result=mysql_query("INSERT INTO Post_ads(Login_ID,Ads_ID) values('$loginid','$adid')",$cn) or die(mysql_error());
-
+ 
             }
-            else
+           else if(!file_exists($_FILES['photo']['tmp_name']) || !is_uploaded_file($_FILES['photo']['tmp_name']))
+           {
+		$result=mysql_query("INSERT INTO Ads_info(Ads_ID,Title,Price,Description,Address,Category,Display,New) values('$adid','$title','$price','$desc','$address','$cat','Y','$new')",$cn) or die(mysql_error());
+		$result=mysql_query("INSERT INTO Post_ads(Login_ID,Ads_ID) values('$loginid','$adid')",$cn) or die(mysql_error());
+
+           }
+           else
             {
-                echo "choose right format for photo";
+                echo "<script>alert('choose right format/size for photo')</script>";
             }
 
 
 }
+
+
 
 
 ?>

@@ -27,7 +27,7 @@ $result=mysql_query("update Ads_info set Display='N' where Ads_ID='$id'",$cn) or
 ?>
 <form name="form" method="POST" action="myads.php">
 <?php
-$query=mysql_query("SELECT * FROM Ads_info as a,Post_ads as p,Category1 as c where  p.Login_ID='$loginid' and p.Ads_ID=a.Ads_ID and c.ID=a.Category and a.Display='Y' order by a.Time desc",$cn) or die(mysql_error());
+$query=mysql_query("SELECT * FROM Ads_info as a,Post_ads as p,Category1 as c where  p.Login_ID='$loginid' and p.Ads_ID=a.Ads_ID and c.ID=a.Category and a.Display='Y' and a.Blocked='N' order by a.Time desc",$cn) or die(mysql_error());
  while($fet = mysql_fetch_array($query))
  {
 $id=$fet['Ads_ID'];
