@@ -77,7 +77,7 @@ if($fet['Blocked']=="Y")
 {echo "<span style='color:red'>This ad is Blocked</span></br>";$block="N";}
 if($fet['Blocked']=="N")
 {echo "Normal Ad</br>";$block="Y";}
-echo "<a href='profile.php?user=".$user."'>User</a></br>";
+echo "<a href='profile.php?user=".$user."' target='_blank'>User</a></br>";
 $val=$id."--".$block;
 echo "<input type='checkbox' name='Block[]' value='$val'/>Change</br></br>";
 

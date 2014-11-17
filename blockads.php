@@ -46,8 +46,9 @@ $result=mysql_query("insert into Admin_Ads(Login_ID,Ads_ID,Act) values('$loginid
           
 </div>
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
+         <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
 <?php
               
      $query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Display='Y' order by Time desc",$cn) or die(mysql_error());
