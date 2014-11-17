@@ -14,7 +14,11 @@ include_once 'temp2.php';
             <div class="col-lg-12 text-center"><h3>Showing All Results</h3></br></div>
 </div>
         <div class="row">
-            <div class="col-lg-12 text-center">
+		<form name="form" action="blockads.php" method="POST">
+
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+
 <?php
               
      $query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Display='Y' and a.Blocked='N' order by Time desc",$cn) or die(mysql_error());

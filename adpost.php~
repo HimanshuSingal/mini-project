@@ -27,7 +27,10 @@ $price=$_POST['price'];
 $desc=$_POST['desc'];
 $address=$_POST['address'];
 $cat=$_POST['cat'];
+if(isset($_POST['new']))
 $new=$_POST['new'];
+else
+$new='O';
 $result=mysql_query("select Ads_ID from Ads_info order by Ads_ID desc limit 1",$cn) or die(mysql_error());
 $fet = mysql_fetch_array($result);
 $adid=$fet['Ads_ID']+1;

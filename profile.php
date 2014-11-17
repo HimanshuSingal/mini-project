@@ -27,12 +27,16 @@
 		$user=$_GET['user'];
 		$query=mysql_query("SELECT * FROM User where Login_ID='$user'",$cn) or die(mysql_error());
 		$fet = mysql_fetch_array($query);
+		if($fet['Blocked']=='N')
+		{
 		echo "Name -".$fet['Name']."</br>";
 		echo "Email id -".$fet['Email_ID']."</br>";
 		echo "Phone No -".$fet['Phone_no']."</br>";
 		echo "Address - ".$fet['Address']."</br>";
 		echo "</br>";
-
+		}
+		else
+		echo "User Blocked";
 		}
 		?>
 	</div>
