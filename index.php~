@@ -7,7 +7,7 @@ include_once 'temp2.php';
 <br><br>
 <div class="container">
 <div class="row">
-            <div class="col-lg-12 text-center"><h3>All Ads Posted</h3></div>
+            <div class="col-lg-12 text-center"><h3>All Ads Posted</h3></br></br></div>
 </div>
         <div class="row">
             <div class="col-lg-12 text-center">
