@@ -41,7 +41,7 @@ include_once 'cn.php';
 
 
 <body>
-
+        
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -55,6 +55,7 @@ include_once 'cn.php';
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+          <li><a href='index.php'>Home</a>
           <li><?php
           if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
           {
@@ -69,7 +70,7 @@ include_once 'cn.php';
             } 
             else
             {
-                echo "<span style='color:red'>Hey! $loginid</span>"; 
+                echo "<li><span style='color:red ' >Hey! $loginid</span><li>"; 
             }
            
         }
