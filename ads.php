@@ -7,13 +7,6 @@ include_once 'temp2.php';
 
 <body>
 
-<br><br>
-<<<<<<< HEAD
-
-<div class="container">
-		<div class="row">
-         	   <div class="col-lg-12 text-center">
-=======
 <div class="container">
 <?php
 if(isset($_POST['search']))
@@ -33,7 +26,6 @@ else if(isset($_GET['cat']))
 ?>
         <div class="row">
             <div class="col-lg-12 text-center">
->>>>>>> a630f6859b773803b4d52bf699d3ff31b53d59a5
 
 					<?php
 					if(isset($_POST['search']))
