@@ -2,78 +2,80 @@
 include_once 'temp.php';
 include_once 'temp2.php';
 ?>
+
 <title>Mini Craigslist</title>
+
 <body>
+
 <br><br>
+
 <div class="container">
+		<div class="row">
+         	   <div class="col-lg-12 text-center">
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
+					<?php
+					if(isset($_POST['search']))
+					{
+					$search=$_POST['search'];
+					$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and (a.Title like '%$search%' or a.Description like '%$search%' or c.Category like '%$search%') and a.Display='Y' and a.Blocked='N' order by a.Time desc",$cn) or die(mysql_error());
+					 while($fet = mysql_fetch_array($query))
+					 {
+					$id=$fet['Ads_ID'];
+					$src="adphotos/".$id.".jpg";
+					if(file_exists($src))
+					{
+					echo "<img src='$src' width='200' height='200'></br>";
+					}
+					        echo "Title -".$fet['Title']."</br>";
+					echo "Category -".$fet['Category']."</br>";
 
-<?php
-if(isset($_POST['search']))
-{
-$search=$_POST['search'];
-$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and (a.Title like '%$search%' or a.Description like '%$search%' or c.Category like '%$search%') and a.Display='Y' and a.Blocked='N' order by a.Time desc",$cn) or die(mysql_error());
- while($fet = mysql_fetch_array($query))
- {
-$id=$fet['Ads_ID'];
-$src="adphotos/".$id.".jpg";
-if(file_exists($src))
-{
-echo "<img src='$src' width='200' height='200'></br>";
-}
-        echo "Title -".$fet['Title']."</br>";
-echo "Category -".$fet['Category']."</br>";
+					echo "Details -".$fet['Description']."</br>";
+					echo "Price -".$fet['Price']."</br>";
+					if($fet['New']=="Y")
+					echo "Brand New </br>";
+					if($fet['New']=="N")
+					echo "Used</br>";
+					echo "Location -".$fet['Address']."</br>";
+					$userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
+					$userfet=mysql_fetch_array($userquery);
+					$user=$userfet['Login_ID'];
+					echo "<a href='profile.php?user=".$user."'>Contact Me</a></br>";
+					echo "</br>";
+					}
+					}
 
-echo "Details -".$fet['Description']."</br>";
-echo "Price -".$fet['Price']."</br>";
-if($fet['New']=="Y")
-echo "Brand New </br>";
-if($fet['New']=="N")
-echo "Used</br>";
-echo "Location -".$fet['Address']."</br>";
-$userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
-$userfet=mysql_fetch_array($userquery);
-$user=$userfet['Login_ID'];
-echo "<a href='profile.php?user=".$user."'>Contact Me</a></br>";
-echo "</br>";
-}
-}
+					if(isset($_GET['cat']))
+					{
+					$cat=$_GET['cat'];
+					$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Category='$cat' and a.Display='Y' and a.Blocked='N' order by Time desc",$cn) or die(mysql_error());
+					 while($fet = mysql_fetch_array($query))
+					 {
+					$id=$fet['Ads_ID'];
+					$src="adphotos/".$id.".jpg";
+					if(file_exists($src))
+					{
+					echo "<img src='$src' width='200' height='200'></br>";
+					}
+					        echo "Title -".$fet['Title']."</br>";
+					echo "Category -".$fet['Category']."</br>";
 
-if(isset($_GET['cat']))
-{
-$cat=$_GET['cat'];
-$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Category='$cat' and a.Display='Y' and a.Blocked='N' order by Time desc",$cn) or die(mysql_error());
- while($fet = mysql_fetch_array($query))
- {
-$id=$fet['Ads_ID'];
-$src="adphotos/".$id.".jpg";
-if(file_exists($src))
-{
-echo "<img src='$src' width='200' height='200'></br>";
-}
-        echo "Title -".$fet['Title']."</br>";
-echo "Category -".$fet['Category']."</br>";
+					echo "Details -".$fet['Description']."</br>";
+					echo "Price - ".$fet['Price']."</br>";
+					if($fet['New']=="Y")
+					echo "Brand New </br>";
+					if($fet['New']=="N")
+					echo "Used</br>";
+					echo "Location -".$fet['Address']."</br>";
+					$userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
+					$userfet=mysql_fetch_array($userquery);
+					$user=$userfet['Login_ID'];
+					echo "<a href='profile.php?user=".$user."'>Contact Me</a></br>";
 
-echo "Details -".$fet['Description']."</br>";
-echo "Price - ".$fet['Price']."</br>";
-if($fet['New']=="Y")
-echo "Brand New </br>";
-if($fet['New']=="N")
-echo "Used</br>";
-echo "Location -".$fet['Address']."</br>";
-$userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
-$userfet=mysql_fetch_array($userquery);
-$user=$userfet['Login_ID'];
-echo "<a href='profile.php?user=".$user."'>Contact Me</a></br>";
+					echo "</br>";
+					}
+					}
 
-echo "</br>";
-}
-}
-
-?>
-  </div>
-       
-    </div>
+					?>
+		</div>
+</div>
 </body>

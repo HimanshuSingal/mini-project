@@ -18,10 +18,13 @@ else
 header("Location:forbidden.php");
 }
 ?>
+
 <br>
 <br>
-<form name="form" action="blockads.php" method="POST">
-<input type="submit" value="Change"/>
+
+	<form name="form" action="blockads.php" method="POST">
+		<input type="submit" value="Change"/>
+	</form>
 <br>
 <?php 
 if(isset($_POST['search']))
@@ -101,4 +104,4 @@ echo "</br>";
 ?>
 
 
-</form>
+

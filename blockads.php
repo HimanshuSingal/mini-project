@@ -26,42 +26,43 @@ $result=mysql_query("update Ads_info set Blocked='$block' where Ads_ID='$id'",$c
 $result=mysql_query("insert into Admin_Ads(Login_ID,Ads_ID,Act) values('$loginid','$id','$block') ",$cn) or die(mysql_error());
 }}}
 ?>
-<head>
-<title>Block Ads</title>
-<style>
- 
- .active{
- 	font-size: 35px;
- }
- .sidebar {
-    position: fixed;
-    top: 51px;
-    bottom: 0px;
-    left: 0px;
-    z-index: 1000;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: #F5F5F5;
-    border-right: 1px solid #EEE;
-}
 
-</style>
+<head>
+    <title>Block Ads</title>
+      <style>
+ 
+           .active{
+           	font-size: 35px;
+           }
+           .sidebar {
+              position: fixed;
+              top: 51px;
+              bottom: 0px;
+              left: 0px;
+              z-index: 1000;
+              display: block;
+              padding: 20px;
+              overflow-x: hidden;
+              overflow-y: auto;
+              background-color: #F5F5F5;
+              border-right: 1px solid #EEE;
+          }
+
+      </style>
 </head>
 
 <body>
+
 <br><br>
+
 <div style="padding-left:40% ;background-color:#ecf0f1;padding-top:13px;padding-bottom:5px;">
 	<form class="navbar-form navbar-left" role="search" method="POST" action="ads.php">
 		<div class="form-group">
     		<input type="text" class="form-control" id="search" name="search" placeholder="Enter Item To Search">
-    	</div>
-
-    		<button type="submit" class="btn btn-default" onclick="return check()">Search</button>
-    		
+    </div>
+        <button type="submit" class="btn btn-default" onclick="return check()">Search</button>
+    	
 	</form>
-
 </div>
 
 <div class="container-fluid">
