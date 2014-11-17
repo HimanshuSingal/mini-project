@@ -72,8 +72,8 @@ include_once 'cn.php';
             else
             {  
               echo "<li><a href='addcategory.php'>Add Category</a></li>";
-          
-                echo "<li><a href='adminlogout.php'>Logout</a></li>"; 
+              echo "<li><a href='blockuser.php'>Block User</a></li>";
+               echo "<li><a href='adminlogout.php'>Logout</a></li>"; 
                 echo "<li style='color:red'>Hey! $loginid<li>"; 
                
              }
