@@ -18,8 +18,6 @@ include_once 'cn.php';
     <title>Mini Craigslist</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="dashboard.css" rel="stylesheet">
-    <script src="js/ie-emulation-modes-warning.js"></script>
   </head>
 
 
@@ -77,8 +75,6 @@ include_once 'cn.php';
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
 
 </html>
