@@ -1,3 +1,16 @@
+<head>
+	<style>
+		body{
+			padding-top: 50px;
+			padding-left:10px;
+		}
+
+
+	</style>
+</head>
+
+<body>
+
 <?php
 include_once 'temp.php';
 if(isset($_POST['search']))
@@ -10,7 +23,7 @@ $id=$fet['Ads_ID'];
 $src="adphotos/".$id.".jpg";
 if(file_exists($src))
 {
-echo "<img src='$src' width='300' height='200'></br>";
+echo "<img src='$src' width='200' height='200'></br>";
 }
         echo "Title -".$fet['Title']."</br>";
 echo "Category -".$fet['Category']."</br>";
@@ -40,7 +53,7 @@ $id=$fet['Ads_ID'];
 $src="adphotos/".$id.".jpg";
 if(file_exists($src))
 {
-echo "<img src='$src' width='300' height='200'></br>";
+echo "<img src='$src' width='200' height='200'></br>";
 }
         echo "Title -".$fet['Title']."</br>";
 echo "Category -".$fet['Category']."</br>";
@@ -63,4 +76,4 @@ echo "</br>";
 
 
 ?>
-
+</body>

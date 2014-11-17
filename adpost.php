@@ -52,9 +52,7 @@ if ((($_FILES["photo"]["type"] == "image/jpeg")
                 echo "<script>alert('choose right format/size for photo')</script>";
             }
 
-
 }
-
 
 
 

@@ -34,7 +34,7 @@ $id=$fet['Ads_ID'];
 $src="adphotos/".$id.".jpg";
 if(file_exists($src))
 {
-echo "<img src='$src' width='300' height='200'></br>";
+echo "<img src='$src' width='200' height='200'></br>";
 }
         echo "Title -".$fet['Title']."</br>";
 echo "Category -".$fet['Category']."</br>";
