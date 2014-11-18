@@ -11,7 +11,7 @@ include_once 'temp2.php';
 
 
 <div class="row">
-            <div class="col-lg-12 text-center"><h3>Showing All Results</h3></br></div>
+            <div class="col-lg-12 text-center"><h3>Showing Latest Results</h3></br></div>
 </div>
         <div class="row">
 		
@@ -20,7 +20,7 @@ include_once 'temp2.php';
 
 <?php
               
-     $query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Display='Y' and a.Blocked='N' order by Time desc ",$cn) or die(mysql_error());
+     $query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Display='Y' and a.Blocked='N' order by Time desc limit 30",$cn) or die(mysql_error());
  while($fet = mysql_fetch_array($query))
  {
 $id=$fet['Ads_ID'];
