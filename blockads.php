@@ -35,7 +35,6 @@ $result=mysql_query("insert into Admin_Ads(Login_ID,Ads_ID,Act) values('$loginid
 
 <div class="row">
              <div class="col-lg-12 text-center">
-             <a href="adminregister.php">Register another admin here</a></div>
             <div class="col-lg-12 text-center"><h3>Showing All Results</h3></br></div>
 </div>
 <div class="row">
