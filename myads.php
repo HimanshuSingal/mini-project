@@ -30,7 +30,7 @@ $result=mysql_query("update Ads_info set Display='N' where Ads_ID='$id'",$cn) or
 <body>
 <div class="container">
 <div class="row">
-            <div class="col-lg-12 text-center"><h3>All Ads Posted By You</h3></br></div>
+            <div class="col-lg-12 text-center"><h3>All Ads Posted By You from <?php echo $start+1?> to <?php echo $end+$start?></h3></br></div>
 </div>
   <div class="row">
 		
@@ -38,7 +38,7 @@ $result=mysql_query("update Ads_info set Display='N' where Ads_ID='$id'",$cn) or
             <div class="col-md-4">
 <form name="form" method="POST" action="myads.php">
 <?php
-$query=mysql_query("SELECT * FROM Ads_info as a,Post_ads as p,Category1 as c where  p.Login_ID='$loginid' and p.Ads_ID=a.Ads_ID and c.ID=a.Category and a.Display='Y' order by a.Time desc",$cn) or die(mysql_error());
+$query=mysql_query("SELECT * FROM Ads_info as a,Post_ads as p,Category1 as c where  p.Login_ID='$loginid' and p.Ads_ID=a.Ads_ID and c.ID=a.Category and a.Display='Y' order by a.Time desc limit $start,$end",$cn) or die(mysql_error());
  while($fet = mysql_fetch_array($query))
  {
 if($fet['Blocked']=='N')

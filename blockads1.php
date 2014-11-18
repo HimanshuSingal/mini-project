@@ -1,6 +1,9 @@
 <?php
 include_once 'tempadmin.php';
 include_once 'temp2admin.php';
+$start1=$start+1;
+$end1=$start+$end;
+
 if(isset($_SESSION['admin']) && isset($_SESSION['adminpass']))
 {
 $loginid=$_SESSION['admin'];
@@ -26,7 +29,7 @@ header("Location:forbidden.php");
 if(isset($_POST['search']))
 {
          $search=$_POST['search'];
-        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For $search</h3></br></div></div>";
+        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For $search from $start1 to $end1</h3></br></div></div>";
 }
 else if(isset($_GET['cat']))
 {
@@ -34,7 +37,7 @@ else if(isset($_GET['cat']))
 	$query=mysql_query("SELECT * FROM Category1 where ID='$cat'",$cn) or die(mysql_error());
 	$fet = mysql_fetch_array($query);
          $cat=$fet['Category'];
-        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For Category $cat</h3></br></div></div>";
+        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For Category $cat from $start1 to $end1</h3></br></div></div>";
 }
 
 ?>
@@ -50,13 +53,14 @@ else if(isset($_GET['cat']))
 </div>
 
         <div class="row">
-            <div class="col-lg-12 text-center">
-
+	
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
 <?php 
 if(isset($_POST['search']))
 {
 $search=$_POST['search'];
-$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and (a.Title like '%$search%' or a.Description like '%$search%' or c.Category like '%$search%') and a.Display='Y' order by a.Time desc",$cn) or die(mysql_error());
+$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and (a.Title like '%$search%' or a.Description like '%$search%' or c.Category like '%$search%') and a.Display='Y' order by a.Time desc limit $start,$end",$cn) or die(mysql_error());
  while($fet = mysql_fetch_array($query))
  {
 $id=$fet['Ads_ID'];
@@ -94,7 +98,7 @@ echo "</br>";
 if(isset($_GET['cat']))
 {
 $cat=$_GET['cat'];
-$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Category='$cat' and a.Display='Y' order by Time desc",$cn) or die(mysql_error());
+$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Category='$cat' and a.Display='Y' order by Time desc limit $start,$end",$cn) or die(mysql_error());
  while($fet = mysql_fetch_array($query))
  {
 $id=$fet['Ads_ID'];

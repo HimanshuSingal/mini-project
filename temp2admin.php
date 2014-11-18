@@ -32,6 +32,14 @@
 
     		<button type="submit" class="btn btn-default" onclick="return check()">Search</button>
 	</form>
+ <form class="navbar-form navbar-left" name="startend" role="search" method="POST" action="startend1.php" >
+		<div class="form-group">
+    		<input type="number"  id="start" name="start" value= "<?php echo $start+1?>" >
+   		<input type="number"  id="end" name="end" value= "<?php echo $start+$end?>" >
+               	</div>
+    		<button type="submit" class="btn btn-default">Update</button>
+	</form>
+
 <br>
 <br>
 	

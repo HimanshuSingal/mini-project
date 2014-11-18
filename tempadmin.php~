@@ -51,7 +51,8 @@ include_once 'cn.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" style="padding-left:75%; font-size:30px">Mini-Craigslist</a>
+          <a class="navbar-brand" ><img src="21.jpg" style="width:40px;height:35px"></a>
+          <a class="navbar-brand" style="font-size:30px">Topaz World</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -72,8 +73,9 @@ include_once 'cn.php';
             else
             {  
               echo "<li><a href='addcategory.php'>Add Category</a></li>";
-          
-                echo "<li><a href='adminlogout.php'>Logout</a></li>"; 
+              echo "<li><a href='blockuser.php'>Block User</a></li>";
+              echo "<li><a href='adminregister.php'>Register another admin here</a></li>";
+               echo "<li><a href='adminlogout.php'>Logout</a></li>"; 
                 echo "<li style='color:red'>Hey! $loginid<li>"; 
                
              }
