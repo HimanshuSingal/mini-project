@@ -20,7 +20,7 @@ include_once 'temp2.php';
 
 <?php
               
-     $query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Display='Y' and a.Blocked='N' order by Time desc",$cn) or die(mysql_error());
+     $query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Display='Y' and a.Blocked='N' order by Time desc ",$cn) or die(mysql_error());
  while($fet = mysql_fetch_array($query))
  {
 $id=$fet['Ads_ID'];
