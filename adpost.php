@@ -144,11 +144,6 @@ function check()
 {
 
 
-	/*if(document.form.cat.value=="")
-	{
-	document.getElementById("demo").innerHTML = "Please enter category!!";
-	return false;
-	}*/
 	if(document.form.cat.value=="NULL")
 	{
 	document.getElementById("demo").innerHTML = "Please choose category!!";
@@ -160,6 +155,7 @@ function check()
 		document.getElementById("demo").innerHTML = "Please enter title!!";
 		return false;
 	}
+
 
 	/*if(document.form.price.value=="")
 	{
@@ -185,7 +181,10 @@ function check()
 		return false;
 	}*/
 
-	return true;
+	//return true;
+
+		return true;
+
 
 
 

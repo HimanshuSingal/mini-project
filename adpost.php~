@@ -144,11 +144,6 @@ function check()
 {
 
 
-	/*if(document.form.cat.value=="")
-	{
-	document.getElementById("demo").innerHTML = "Please enter category!!";
-	return false;
-	}*/
 	if(document.form.cat.value=="NULL")
 	{
 	document.getElementById("demo").innerHTML = "Please choose category!!";
@@ -161,7 +156,8 @@ function check()
 		return false;
 	}
 
-	if(document.form.price.value=="")
+
+	/*if(document.form.price.value=="")
 	{
 		document.getElementById("demo").innerHTML = "Please enter price in correct format!!";
 		return false;
@@ -183,9 +179,12 @@ function check()
 	{
 		document.getElementById("demo").innerHTML = "Please enter details!!";
 		return false;
-	}
+	}*/
 
-	return true;
+	//return true;
+
+		return true;
+
 
 
 
