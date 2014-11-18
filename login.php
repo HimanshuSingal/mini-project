@@ -47,7 +47,7 @@ echo "failed";
       <input name="_token" type="hidden" value="snIDVlxZSk7KEJjGcPcP9EmwfyY1lMyIuaU5s8ct">
         <fieldset>
             <h3 class="sign-up-title" style="color:dimgray;">Welcome back! sign in</h3>
-            <p id="demon" style="color:red;"></p>
+            <p id="demo" style="color:red;"></p>
             <hr class="colorgraph">
             <input type="text" class="form-control" id="loginid" name="loginid" placeholder="Username">
             <input type="password" class="form-control" id="pass" name="pass" placeholder="Password"><br>
@@ -66,33 +66,25 @@ echo "failed";
 
 function check()
 {
-/*var login;
+var login;
 login=document.myform.loginid.value ;
 var pass;
-pass=document.myform.pass.value;*/
-if(document.myform.loginid.value== "" && document.myform.pass.value="")
+pass=document.myform.pass.value;
+
+if(login== "")
    {
-    document.getElementById("demon").innerHTML = "Please enter username and password!!";
+    document.getElementById("demo").innerHTML = "Please enter username !!";
      //return false;
      //alert( "Please enter the loginid to be searched!!" );
      //document.myform.loginid.focus() ;
      return false;
      
    }
-else if(document.myform.loginid.value== "")
-   {
-    document.getElementById("demon").innerHTML = "Please enter username !!";
-     //return false;
-     //alert( "Please enter the loginid to be searched!!" );
-     //document.myform.loginid.focus() ;
-     return false;
-     
-   }
-if(document.myform.pass.value=="")
+if(pass=="")
 {
-document.getElementById("demon").innerHTML = "Please enter username !!";
-     return false;
-     }
+document.getElementById("demo").innerHTML = "Please enter password !!";
+return false;
+}
 
   
 return true;

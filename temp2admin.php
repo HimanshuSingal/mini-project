@@ -24,7 +24,8 @@
 <body>
 <br><br>
 <div  style="padding-left:40% ;background-color:#F5F5F5;padding-top:13px;padding-bottom:5px;">
-	<form class="navbar-form navbar-left" role="search" method="POST" action="blockads1.php">
+           <p id="demo" style="color:red"></p>
+	<form class="navbar-form navbar-left" name="form" role="search" method="POST" action="blockads1.php">
 		<div class="form-group">
     		<input type="text" class="form-control" id="search" name="search" placeholder="Enter Item To Search">
     	</div>

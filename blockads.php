@@ -96,6 +96,17 @@ echo "</br>";
 <script>
 function check()
 {
+if(document.form.search.value == "")
+   {
+     document.getElementById("demo").innerHTML = "Please enter the item to be searched!!";
+     return false;
+     /*alert( "Please enter the item to be searched!!" );
+     document.myform.search.focus();
+     return false;*/
+     
+   }
+
+
 return true;
 }
 </script>

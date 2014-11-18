@@ -37,7 +37,7 @@ $result=mysql_query("INSERT INTO User(Name,Login_ID,Email_ID,Phone_no,Address,Pa
             <p id="demo" style="color:red"></p>
 
             <hr class="colorgraph">
-             <input type="text" class="form-control" id="name" name="names" placeholder="Enter name">
+             <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
             <input type="text" class="form-control" id="loginid" name="loginid" placeholder="Enter a user name">
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
             <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
@@ -59,37 +59,38 @@ $result=mysql_query("INSERT INTO User(Name,Login_ID,Email_ID,Phone_no,Address,Pa
 <script>
 function check()
 {
-var emailID = document.myform.email.value;
-   atpos = emailID.indexOf("@");
-   dotpos = emailID.lastIndexOf(".");
-if(document.myform.names.value=="")
-{
-document.getElementById("demo").innerHTML = "Please enter name!!";
-return false;
-}
-if(document.myform.loginid.value=="")
-{
-document.getElementById("demo").innerHTML = "Please enter loginid!!";
-return false;
-}
-if(document.myform.email.value=="")
-{
-document.getElementById("demo").innerHTML = "Please enter emailid!!";
-return false;
-}
- if (atpos < 1 || ( dotpos - atpos < 2 )) 
-   {
-       //alert("Please enter correct email ID")
-       //document.myform.email.focus() ;
-       document.getElementById("demo").innerHTML = "Please enter correct email ID";
-       return false;
-   }
-if(document.myform.phone.value=="")
-{
-document.getElementById("demo").innerHTML = "Please enter phone number!!";
-return false;
-}
+	var emailID = document.myform.email.value;
+	   atpos = emailID.indexOf("@");
+	   dotpos = emailID.lastIndexOf(".");
+	if(document.myform.name.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please enter name!!";
+		return false;
+	}
+	if(document.myform.loginid.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please enter loginid!!";
+		return false;
+	}
+	if(document.myform.email.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please enter emailid!!";
+		return false;
+	}
+	 if (atpos < 1 || ( dotpos - atpos < 2 )) 
+	   {
+	       //alert("Please enter correct email ID")
+	       //document.myform.email.focus() ;
+	       document.getElementById("demo").innerHTML = "Please enter correct email ID";
+	       return false;
+	   }
+	if(document.myform.phone.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please enter phone number!!";
+		return false;
+	}
 
+<<<<<<< HEAD
 if(document.myform.address.value=="")
 {
 document.getElementById("demo").innerHTML = "Please enter address!!";
@@ -110,12 +111,35 @@ if(document.myform.pass1.value!=document.myform.pass2.value)
 document.getElementById("demo").innerHTML = "password didn't match with the original. Please retype password!!";
 return false;
 }
-
-
-
-
-
-
 return true;
+=======
+	if(document.myform.address.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please enter address!!";
+		return false;
+	}
+	if(document.myform.pass1.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please enter password!!";
+		return false;
+	}
+	if(document.myform.pass2.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please retype password!!";
+		return false;
+	}
+	if(document.myform.pass1.value!=document.myform.pass2.value)
+	{
+		document.getElementById("demo").innerHTML = "password didn't match with the original. Please retype password!!";
+		return false;
+	}
+
+
+
+
+
+
+	return true;
+>>>>>>> 034fcc1d469efa13b385f7754dd5162581cf99ec
 }
 </script>

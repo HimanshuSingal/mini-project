@@ -24,7 +24,8 @@
 <body>
 <br><br>
 <div  style="padding-left:40% ;background-color:#F5F5F5;padding-top:13px;padding-bottom:5px;">
-	<form class="navbar-form navbar-left" role="search" method="POST" action="blockads1.php">
+
+	<form class="navbar-form navbar-left" name="form" role="search" method="POST" action="blockads1.php">
 		<div class="form-group">
     		<input type="text" class="form-control" id="search" name="search" placeholder="Enter Item To Search">
     	</div>
@@ -45,7 +46,7 @@
             $query=mysql_query("SELECT * FROM Category1 order by Category",$cn) or die(mysql_error());
             while($fet = mysql_fetch_array($query))
             {
-                  echo "<a href='ads.php?cat=".$fet['ID']."'>".$fet['Category']."</a>";
+                  echo "<a href='blockads1.php?cat=".$fet['ID']."'>".$fet['Category']."</a>";
             }
            ?></li>
           </ul>
