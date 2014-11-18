@@ -40,8 +40,8 @@ $result=mysql_query("insert into Admin_User(Admin_ID,USER_ID,Act) values('$login
 
             <div class="col-md-1"></div>
            <div class="col-md-1"></div>
-            <div class="col-md-1"><input type="submit" value="Change"/></br></div>
-          
+            <div class="col-md-1"><input type="submit" value="Change" onclick="return check()"/></br></div>
+       
 </div>
 
             <div class="row">
@@ -84,6 +84,7 @@ echo "</br>";
 <script>
 function check()
 {
+
 return true;
 }
 </script>

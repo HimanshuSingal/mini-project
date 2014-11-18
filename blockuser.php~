@@ -40,14 +40,13 @@ $result=mysql_query("insert into Admin_User(Admin_ID,USER_ID,Act) values('$login
 
             <div class="col-md-1"></div>
            <div class="col-md-1"></div>
-            <div class="col-md-1"><input type="submit" value="Change"/></br></div>
-          
+            <div class="col-md-1"><input type="submit" value="Change" onclick="return check()"/></br></div>
+       
 </div>
 
-<div class="row">
+            <div class="row">
             <div class="col-md-4"></div>
-           
-    <div class="col-md-4">
+            <div class="col-md-4">
 
 <?php
               
@@ -85,6 +84,24 @@ echo "</br>";
 <script>
 function check()
 {
+/*if(document.form.Block[].value==NULL)
+{
+document.getElementById("demo").innerHTML = "No user selected!!";
+return false;
+}
+//if( document.form.Block[].checked == false  )
+//{
+var group = document.form.Block[];
+for (var i=0; i<group.length; i++) {
+if (Block[i].checked)
+break;
+}
+if (i==group.length)
+{
+document.getElementById("demo").innerHTML = "No user selected!!";
+//alert ( "Please choose your Gender: Male or Female" ); 
+return false;
+}*/
 return true;
 }
 </script>
