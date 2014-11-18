@@ -24,7 +24,7 @@ include_once 'cn.php';
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Mini Craigslist</title>
+    <title>Topaz World</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
