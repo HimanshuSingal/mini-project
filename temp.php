@@ -8,7 +8,7 @@ session_start();
 else
 {
 $start=0;
-$end=20;
+$end=10;
 }   
 include_once 'cn.php';
 ?>

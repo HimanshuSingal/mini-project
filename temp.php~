@@ -1,6 +1,15 @@
 <?php
 ob_start();
 session_start();
+    if(isset($_SESSION['start']) && isset($_SESSION['end']))
+{   
+        $start=$_SESSION['start'];
+	$end=$_SESSION['end'];}
+else
+{
+$start=0;
+$end=20;
+}   
 include_once 'cn.php';
 ?>
 <?php
@@ -64,7 +73,6 @@ include_once 'cn.php';
                              {
                                  echo "<a href='login.php'> sign in</a>";
                                  echo "<li><a href='register.php'> sign up</a><li>";
-                                 echo "<li><a href='changedetails.php'> sign up</a><li>";
                               }
                             ?>
                         </li>
