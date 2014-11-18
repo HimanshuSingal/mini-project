@@ -55,6 +55,8 @@ echo "failed";
             <input class="btn btn-lg btn-success btn-block" type="submit" value="Login" onclick="return check()">
           </fieldset>
         </form>
+        <br>
+        <a href="register.php"><strong>New user? Click Here</strong></a>
     </div>
     </div>
 </div>

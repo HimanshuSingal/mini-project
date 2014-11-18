@@ -157,7 +157,35 @@ function check()
 		return false;
 	}
 
+
+	/*if(document.form.price.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please enter price in correct format!!";
+		return false;
+	}
+
+	if(document.form.new.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please check one of the box!!";
+		return false;
+	}
+
+	if(document.form.address.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please enter location!!";
+		return false;
+	}
+
+	if(document.form.desc.value=="")
+	{
+		document.getElementById("demo").innerHTML = "Please enter details!!";
+		return false;
+	}*/
+
+	//return true;
+
 		return true;
+
 
 
 
