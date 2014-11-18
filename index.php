@@ -21,43 +21,43 @@ include_once 'temp2.php';
 <?php
     
      $query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Display='Y' and a.Blocked='N' order by Time desc limit $start,$end",$cn) or die(mysql_error());
- while($fet = mysql_fetch_array($query))
- {
-$id=$fet['Ads_ID'];
-$src="adphotos/".$id.".jpg";
-if(file_exists($src))
-{
-echo "<img src='$src' width='200' height='200'></br>";
-}
-        echo "Title -".$fet['Title']."</br>";
-echo "Category -".$fet['Category']."</br>";
+        while($fet = mysql_fetch_array($query))
+        {
+            $id=$fet['Ads_ID'];
+            $src="adphotos/".$id.".jpg";
+            
+            if(file_exists($src))
+            {
+                echo "<img src='$src' width='200' height='200'></br>";
+            }
+            echo "Title -".$fet['Title']."</br>";
+            echo "Category -".$fet['Category']."</br>";
 
-echo "Details -".$fet['Description']."</br>";
-echo "Price - ".$fet['Price']."</br>";
-if($fet['New']=="Y")
-echo "Brand New </br>";
-if($fet['New']=="N")
-echo "Used</br>";
-echo "Location -".$fet['Address']."</br>";
-$userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
-$userfet=mysql_fetch_array($userquery);
-$user=$userfet['Login_ID'];
-echo "<a href='profile.php?user=".$user."' target='_blank'>Contact Me</a></br>";
+            echo "Details -".$fet['Description']."</br>";
+            echo "Price - ".$fet['Price']."</br>";
+            if($fet['New']=="Y")
+                    echo "Brand New </br>";
+            if($fet['New']=="N")
+                    echo "Used</br>";
+            echo "Location -".$fet['Address']."</br>";
+            $userquery=mysql_query("SELECT * FROM Post_ads where Ads_ID='$id'",$cn) or die(mysql_error());
+            $userfet=mysql_fetch_array($userquery);
+            $user=$userfet['Login_ID'];
+            echo "<a href='profile.php?user=".$user."' target='_blank'>Contact Me</a></br>";
 
-echo "</br>";
-}
+            echo "</br>";
+        }
 ?>
             </div>
-
-       
-    </div>
+            </div>
 </div>
-</body>
 
+</body>
 <script>
+
 function check()
 {
-if(document.myform.search.value == "")
+    if(document.myform.search.value == "")
    {
      document.getElementById("demo").innerHTML = "Please enter the item to be searched!!";
      return false;
@@ -66,7 +66,7 @@ if(document.myform.search.value == "")
      return false;*/
      
    }
-return true;
+    return true;
 }
 
 </script>

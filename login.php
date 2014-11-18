@@ -1,31 +1,32 @@
 <?php
 include_once 'temp.php';
 ?>
+
 <title>Sign In</title>
 <?php
-if(isset($_POST['loginid']))
-{
-$loginid=$_POST['loginid'];
-$pass=$_POST['pass'];
-$result=mysql_query("select count(*) as cnt,Blocked from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
-$fet = mysql_fetch_array($result);
+  if(isset($_POST['loginid']))
+  {
+      $loginid=$_POST['loginid'];
+      $pass=$_POST['pass'];
+      $result=mysql_query("select count(*) as cnt,Blocked from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
+      $fet = mysql_fetch_array($result);
 
-if($fet['cnt']==1)
-{
-if($fet['Blocked']=='N')
-{
-$_SESSION['uname']=$loginid;
-$_SESSION['pass']=$pass;
-header("Location:index.php");
-}
-if($fet['Blocked']=='Y')
-{
-header("Location:blocked.php");
+      if($fet['cnt']==1)  
+      {
+          if($fet['Blocked']=='N')
+          {
+              $_SESSION['uname']=$loginid;
+              $_SESSION['pass']=$pass;
+              header("Location:index.php");
+          }
+      if($fet['Blocked']=='Y')
+      {
+            header("Location:blocked.php");
 
-}
-}
-else
-echo "failed";
+      }
+  }
+  else
+    echo "failed";
 }
 
 ?>
