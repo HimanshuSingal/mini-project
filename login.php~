@@ -7,14 +7,17 @@ if(isset($_POST['loginid']))
 {
 $loginid=$_POST['loginid'];
 $pass=$_POST['pass'];
-$result=mysql_query("select count(*) as cnt from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
+$result=mysql_query("select count(*) as cnt,Blocked from User where Login_ID='$loginid' and Password='$pass'",$cn) or die(mysql_error());
 $fet = mysql_fetch_array($result);
+
 if($fet['cnt']==1)
 {
 if($fet['Blocked']=='N')
 {
 $_SESSION['uname']=$loginid;
 $_SESSION['pass']=$pass;
+$_SESSION['start']=0;
+$_SESSION['end']=2;
 header("Location:index.php");
 }
 if($fet['Blocked']=='Y')
@@ -54,6 +57,8 @@ echo "failed";
             <input class="btn btn-lg btn-success btn-block" type="submit" value="Login" onclick="return check()">
           </fieldset>
         </form>
+        <br>
+        <a href="register.php"><strong>New user? Click Here</strong></a>
     </div>
     </div>
 </div>
@@ -69,15 +74,7 @@ var login;
 login=document.myform.loginid.value ;
 var pass;
 pass=document.myform.pass.value;
-/*if(document.myform.loginid.value== "" & document.myform.pass.value="")
-   {
-    document.getElementById("demo").innerHTML = "Please enter username and password!!";
-     return false;
-     //alert( "Please enter the loginid to be searched!!" );
-     //document.myform.loginid.focus() ;
-     //return false;
-     
-   }*/
+
 if(login== "")
    {
     document.getElementById("demo").innerHTML = "Please enter username !!";

@@ -1,6 +1,8 @@
 <?php
 include_once 'temp.php';
 include_once 'temp2.php';
+$start1=$start+1;
+$end1=$start+$end;
 ?>
 
 <title>Mini Craigslist</title>
@@ -11,7 +13,8 @@ include_once 'temp2.php';
 if(isset($_POST['search']))
 {
          $search=$_POST['search'];
-        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For $search</h3></br></div></div>";
+
+        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For $search from $start1 to $end1</h3></br></div></div>";
 }
 else if(isset($_GET['cat']))
 {
@@ -19,7 +22,7 @@ else if(isset($_GET['cat']))
 	$query=mysql_query("SELECT * FROM Category1 where ID='$cat'",$cn) or die(mysql_error());
 	$fet = mysql_fetch_array($query);
          $cat=$fet['Category'];
-        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For Category $cat</h3></br></div></div>";
+        echo "<div class='row'><div class='col-lg-12 text-center'><h3>Showing Results For Category $cat from $start1 to $end1</h3></br></div></div>";
 }
 
 ?>
@@ -32,7 +35,7 @@ else if(isset($_GET['cat']))
 					if(isset($_POST['search']))
 					{
 					$search=$_POST['search'];
-					$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and (a.Title like '%$search%' or a.Description like '%$search%' or c.Category like '%$search%') and a.Display='Y' and a.Blocked='N' order by a.Time desc",$cn) or die(mysql_error());
+					$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and (a.Title like '%$search%' or a.Description like '%$search%' or c.Category like '%$search%') and a.Display='Y' and a.Blocked='N' order by a.Time desc limit $start,$end",$cn) or die(mysql_error());
 					 while($fet = mysql_fetch_array($query))
 					 {
 					$id=$fet['Ads_ID'];
@@ -62,7 +65,7 @@ else if(isset($_GET['cat']))
 					if(isset($_GET['cat']))
 					{
 					$cat=$_GET['cat'];
-					$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Category='$cat' and a.Display='Y' and a.Blocked='N' order by Time desc",$cn) or die(mysql_error());
+					$query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Category='$cat' and a.Display='Y' and a.Blocked='N' order by Time desc limit $start,$end",$cn) or die(mysql_error());
 					 while($fet = mysql_fetch_array($query))
 					 {
 					$id=$fet['Ads_ID'];
