@@ -34,6 +34,7 @@ $result=mysql_query("insert into Admin_Ads(Login_ID,Ads_ID,Act) values('$loginid
 
 
 <div class="row">
+             <div class="col-lg-12 text-center">
             <div class="col-lg-12 text-center"><h3>Showing All Results</h3></br></div>
 </div>
 <div class="row">
@@ -96,6 +97,17 @@ echo "</br>";
 <script>
 function check()
 {
+if(document.form.search.value == "")
+   {
+     document.getElementById("demo").innerHTML = "Please enter the item to be searched!!";
+     return false;
+     /*alert( "Please enter the item to be searched!!" );
+     document.myform.search.focus();
+     return false;*/
+     
+   }
+
+
 return true;
 }
 </script>

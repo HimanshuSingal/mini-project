@@ -1,6 +1,15 @@
 <?php
 ob_start();
 session_start();
+  if(isset($_SESSION['start']) && isset($_SESSION['end']))
+{   
+        $start=$_SESSION['start'];
+	$end=$_SESSION['end'];}
+else
+{
+$start=0;
+$end=10;
+} 
 include_once 'cn.php';
 ?>
 <?php

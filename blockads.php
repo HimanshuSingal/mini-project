@@ -35,7 +35,7 @@ $result=mysql_query("insert into Admin_Ads(Login_ID,Ads_ID,Act) values('$loginid
 
 <div class="row">
              <div class="col-lg-12 text-center">
-            <div class="col-lg-12 text-center"><h3>Showing All Results</h3></br></div>
+            <div class="col-lg-12 text-center"><h3>Showing Latest Results From <?php echo $start+1?> to <?php echo $end+$start?></h3></br></div>
 </div>
 <div class="row">
 		<form name="form" action="blockads.php" method="POST">
@@ -52,7 +52,7 @@ $result=mysql_query("insert into Admin_Ads(Login_ID,Ads_ID,Act) values('$loginid
             <div class="col-md-4">
 <?php
               
-     $query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Display='Y' order by Time desc",$cn) or die(mysql_error());
+     $query=mysql_query("SELECT * FROM Ads_info as a,Category1 as c where a.Category=c.ID and a.Display='Y' order by Time desc limit $start,$end",$cn) or die(mysql_error());
  while($fet = mysql_fetch_array($query))
  {
 $id=$fet['Ads_ID'];
