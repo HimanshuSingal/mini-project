@@ -13,7 +13,8 @@ include_once 'temp.php';
 		$address=$_POST['address'];
 		$pass=$_POST['pass1'];
 		$result=mysql_query("INSERT INTO User(Name,Login_ID,Email_ID,Phone_no,Address,Password,Blocked) values('$name','$loginid','$email','$phone','$address','$pass','N')",$cn) or die(mysql_error());
-	}
+	header("Location:login.php");
+      }
 ?>
 
 <head>
