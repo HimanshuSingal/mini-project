@@ -161,7 +161,7 @@ function check()
 		return false;
 	}
 
-	if(document.form.price.value=="")
+	/*if(document.form.price.value=="")
 	{
 		document.getElementById("demo").innerHTML = "Please enter price in correct format!!";
 		return false;
@@ -183,7 +183,7 @@ function check()
 	{
 		document.getElementById("demo").innerHTML = "Please enter details!!";
 		return false;
-	}
+	}*/
 
 	return true;
 

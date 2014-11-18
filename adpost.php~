@@ -142,7 +142,7 @@ if ((($_FILES["photo"]["type"] == "image/jpeg")
 <script>
 function check()
 {
-<<<<<<< HEAD
+
 
 	/*if(document.form.cat.value=="")
 	{
